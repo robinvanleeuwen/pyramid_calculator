@@ -1,0 +1,72 @@
+swagger: "2.0"
+info:
+  description: "A simple service to do calculations"
+  version: "0.1"
+  title: "Calculation Service"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "robinvanleeuwen@gmail.com"
+
+host: "localhost"
+basePath: "/"
+tags:
+- name: "calc"
+  description: "Do basic calculations"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+schemes:
+- "http"
+paths:
+  /calc:
+    post:
+      tags:
+      - "calc"
+      summary: "Perform a calculation"
+      description: ""
+      operationId: "calc"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Calculation that needs to be performed"
+        required: true
+        schema:
+          $ref: "#/definitions/calculation"
+
+      responses:
+        '200':
+          description: "Successful response"
+        '500':
+         description: "Error response"
+
+
+
+definitions:
+  calculation:
+    type: "object"
+    required:
+    - "calculation"
+
+    properties:
+      calculation:
+        type: "string"
+        format: "string"
+    example: '{"calculation": "6 * 42"}'
+
+
+  response:
+    type: "object"
+    properties:
+      error:
+        type: "string"
+        format: "string"
+    example: '{"result": "result: 252"}'
+
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"ger.io""http://swagger.io"r.io"
