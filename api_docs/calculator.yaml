@@ -40,8 +40,9 @@ paths:
       responses:
         '200':
           description: "Successful response"
-        '500':
-         description: "Error response"
+          schema:
+            $ref: "#/definitions/response"
+
 
 
 
@@ -64,9 +65,12 @@ definitions:
       error:
         type: "string"
         format: "string"
-    example: '{"result": "result: 252"}'
+    example: '{"result": "result: 252.0"}
+              {"error": "no calculation request given"}
+              {"error": "Invalid calculation given: ignored (1&38*"}
+             '
 
 
 externalDocs:
   description: "Find out more about Swagger"
-  url: "http://swagger.io"ger.io""http://swagger.io"r.io"
+  url: "http://swagger.io""ger.io""http://swagger.io"r.io"
