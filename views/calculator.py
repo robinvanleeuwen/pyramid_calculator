@@ -30,6 +30,7 @@ class Calculator:
         result = [e for e in c.log if 'result' in e]
 
         if len(result) == 1:
+            result[0] = result[0].replace("result: ", "")
             response_text = json.dumps({"result": result[0]})
             return Response(response_text)
 

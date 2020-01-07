@@ -65,7 +65,7 @@ definitions:
       error:
         type: "string"
         format: "string"
-    example: '{"result": "result: 252.0"}
+    example: '{"result": "252.0"}
               {"error": "no calculation request given"}
               {"error": "Invalid calculation given: ignored (1&38*"}
              '

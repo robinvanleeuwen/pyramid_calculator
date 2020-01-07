@@ -7,7 +7,7 @@ Simple API service to do calculations. POSTS requests to <base-url>/calc should 
 
 which results in a JSON message
 
-    { "result": "Result: 252.0" }
+    { "result": "252.0" }
     
 Possible error results in case of malformed calculation requests:
 

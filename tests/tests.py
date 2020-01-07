@@ -16,7 +16,7 @@ class CalculationTests(unittest.TestCase):
         c = Calculator(request)
         response = c.calc()
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json_body, {"result": "result: 16.0"})
+        self.assertEqual(response.json_body, {"result": "16.0"})
 
     def test_calculation_invalid_json(self):
         from ..views.calculator import Calculator
