@@ -32,7 +32,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Calculation that needs to be performed"
+        description: "Calculation that needs to be performed. Calculations can have a maximum of 1 operation on 2 operands."
         required: true
         schema:
           $ref: "#/definitions/calculation"

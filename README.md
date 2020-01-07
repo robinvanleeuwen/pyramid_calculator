@@ -8,6 +8,12 @@ Simple API service to do calculations. POSTS requests to <base-url>/calc should 
 which results in a JSON message
 
     { "result": "252.0" }
+
+Calculations can have a maximum of one operation on two operands. Eg 
+
+    { "calculation": "6 * 7 * 1 / 34" }
+    
+Would result in an error.
     
 Possible error results in case of malformed calculation requests:
 
