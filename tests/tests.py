@@ -11,7 +11,7 @@ class CalculationTests(unittest.TestCase):
         testing.tearDown()
         
     def test_calculation_success(self):
-        from views.calculator import Calculator
+        from ..views.calculator import Calculator
         request = testing.DummyRequest(json_body={"calculation": "8 * 2"}, method="POST")
         c = Calculator(request)
         response = c.calc()
@@ -19,7 +19,7 @@ class CalculationTests(unittest.TestCase):
         self.assertEqual(response.json_body, {"result": "result: 16.0"})
 
     def test_calculation_invalid_json(self):
-        from views.calculator import Calculator
+        from ..views.calculator import Calculator
         request = testing.DummyRequest(json_body={"calculation": "8 *333 2"}, method="POST")
         c = Calculator(request)
         response = c.calc()
@@ -27,7 +27,7 @@ class CalculationTests(unittest.TestCase):
         self.assertEqual(response.json_body, {"error": "Invalid calculation given: ignored: *333"})
 
     def test_no_calculation_in_json(self):
-        from views.calculator import Calculator
+        from ..views.calculator import Calculator
         request = testing.DummyRequest(json_body={"bananarama": "8 * 2"}, method="POST")
         c = Calculator(request)
         response = c.calc()
