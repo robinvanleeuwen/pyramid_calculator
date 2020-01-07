@@ -3,7 +3,7 @@ Simple Pyramid microservice for calculations
 
 Simple API service to do calculations. POSTS requests to <base-url>/calc should conform to a JSON format
 
-    { "calculation": "8 * 42" }
+    { "calculation": "6 * 42" }
 
 which results in a JSON message
 
