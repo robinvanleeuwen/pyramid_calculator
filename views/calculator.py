@@ -34,7 +34,7 @@ class Calculator:
             response_text = json.dumps({"result": result[0]})
             return Response(response_text)
 
-        response_text = json.dumps({"error": "unknown exception"})
+        response_text = json.dumps({"error": "unknown exception (calculation too complex?)"})
         return Response(response_text)
 
 

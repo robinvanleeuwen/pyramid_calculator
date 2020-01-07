@@ -33,3 +33,11 @@ class CalculationTests(unittest.TestCase):
         response = c.calc()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json_body, {"error": "no calculation request given"})
+
+    def test_calculation_too_complex(self):
+        from ..views.calculator import Calculator
+        request = testing.DummyRequest(json_body={"calculation": "8 * 2 * 7 / 3"}, method="POST")
+        c = Calculator(request)
+        response = c.calc()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json_body, {"error": "unknown exception (calculation too complex?)"})

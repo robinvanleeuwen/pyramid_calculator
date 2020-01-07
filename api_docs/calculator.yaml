@@ -68,6 +68,7 @@ definitions:
     example: '{"result": "252.0"}
               {"error": "no calculation request given"}
               {"error": "Invalid calculation given: ignored (1&38*"}
+              {"error": "unknown excepttion (calculation too complex?)"}
              '
 
 
