@@ -3,6 +3,7 @@ from calculator.simple import SimpleCalculator
 from pyramid.response import Response
 from pyramid.view import view_config, view_defaults
 
+
 @view_defaults(route_name="calc")
 class Calculator:
     def __init__(self, request):
@@ -18,7 +19,6 @@ class Calculator:
         if "calculation" not in self.request.json_body:
             response_text = json.dumps({"error": "no calculation request given"})
             return Response(response_text)
-
 
         c = SimpleCalculator()
         c.run(self.request.json_body["calculation"])
