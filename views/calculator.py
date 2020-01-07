@@ -13,25 +13,27 @@ class Calculator:
         renderer="json",
         request_method="POST"
     )
-    def calc(self):
+    def calc(self) -> Response:
 
         if "calculation" not in self.request.json_body:
             response_text = json.dumps({"error": "no calculation request given"})
+            return Response(response_text)
 
-        else:
-            c = SimpleCalculator()
-            c.run(self.request.json_body["calculation"])
 
-            if any("ignored" in e for e in c.log):
-                response_text = json.dumps(({"error": f"Invalid calculation given: {[e for e in c.log if 'ignored' in e][0]}"}))
+        c = SimpleCalculator()
+        c.run(self.request.json_body["calculation"])
 
-            result = [e for e in c.log if 'result' in e]
+        if any("ignored" in e for e in c.log):
+            response_text = json.dumps(({"error": f"Invalid calculation given: {[e for e in c.log if 'ignored' in e][0]}"}))
+            return Response(response_text)
 
-            if len(result) == 1:
-                response_text = json.dumps({"result": result[0]})
+        result = [e for e in c.log if 'result' in e]
 
-            else:
-                response_text = json.dumps({"error": "unknown exception"})
+        if len(result) == 1:
+            response_text = json.dumps({"result": result[0]})
+            return Response(response_text)
 
-        response = Response(response_text)
-        return response
+        response_text = json.dumps({"error": "unknown exception"})
+        return Response(response_text)
+
+
